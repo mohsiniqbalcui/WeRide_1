@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "537235896960",
+    "firebase_url": "https://assignment-625f3.firebaseio.com",
+    "project_id": "assignment-625f3",
+    "storage_bucket": "assignment-625f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537235896960:android:0afee911bd11a60cae0465",
+        "android_client_info": {
+          "package_name": "com.centsol.assignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "537235896960-68tonp9j5flatgk79hqh1cn6o5gggpcn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.centsol.assignment",
+            "certificate_hash": "930dfdf2fe5cadd82f130cf24ccbca52b9698105"
+          }
+        },
+        {
+          "client_id": "537235896960-3r3f7jq4d9m43mrqk8ei0cf3te127r88.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv4ASkxC2Q1EgdIAAat4HuN_RdbzCkbhg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "537235896960-3r3f7jq4d9m43mrqk8ei0cf3te127r88.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

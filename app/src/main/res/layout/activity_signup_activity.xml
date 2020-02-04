@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="50dp"
+    tools:context=".singup_activity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:gravity="center"
+        android:text="@string/sign_up"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <!--
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="Custom end icon"
+            app:endIconCheckable="true"
+            android:id="@+id/custom_end_icon"
+            app:endIconDrawable="@android:drawable/ic_input_add"
+            app:endIconMode="custom"
+            app:endIconTint="@color/colorPrimaryDark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        https://www.journaldev.com/31980/android-material-text-fields
+        http://wsdesign.in/home/detail/142#
+
+    -->
+
+    <!--
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/TextInputLayoutStyle"
+            android:theme="@style/TextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/tiFullName"
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true"
+            android:autofillHints="Muhammad Iqbal"
+            android:hint="Name">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    -->
+
+    <EditText
+        android:id="@+id/etFullName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/textviewrounded"
+        android:hint="@string/full_name"
+        android:inputType="textPersonName"
+        android:padding="10dp" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="@string/username"
+        android:background="@drawable/textviewrounded"
+        android:inputType="textEmailAddress"
+        android:padding="10dp" />
+
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/textviewrounded"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:padding="10dp" />
+
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/rounded"
+        android:text="@string/register"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+
+        android:text="@string/already_having_account"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/btnRegisterLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/buttonshape"
+        android:text="@string/log_in"
+        android:textColor="@android:color/white" />
+
+    <com.shobhitpuri.custombuttons.GoogleSignInButton
+        android:id="@+id/sign_up_button"
+        android:layout_marginTop="20dp"
+        android:layout_width="306dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/google_sign_up"
+        app:isDarkTheme="true" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBarsignup"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone" />
+
+
+</LinearLayout>
