@@ -2,6 +2,22 @@ package com.centsol.assignment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import com.centsol.assignment.ui.Book_Bus.SlideshowFragment;
 import com.centsol.assignment.ui.Help.ShareFragment;
@@ -15,42 +31,27 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener;
 import com.google.android.material.snackbar.Snackbar;
-
-import android.view.MenuItem;
-import android.view.View;
-
-import androidx.annotation.NonNull;
-//import androidx.fragment.app.Fragment;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
-import android.widget.TextView;
-import android.widget.Toast;
+//import androidx.fragment.app.Fragment;
 
 public class MainActivity1 extends AppCompatActivity implements OnMapReadyCallback {
 	
 	private AppBarConfiguration mAppBarConfiguration;
 	Fragment newFragment;
-	FragmentTransaction transaction ;
+	FragmentTransaction transaction;
 	FirebaseAuth mAuth;
 	FirebaseAuth.AuthStateListener mAuthListner;
 	private GoogleMap mMap;
 	
+	@Override
+	protected void onStart() {
+		super.onStart();
+		mAuth.addAuthStateListener(mAuthListner);
+	}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +69,7 @@ public class MainActivity1 extends AppCompatActivity implements OnMapReadyCallba
 		mAuthListner = new FirebaseAuth.AuthStateListener() {
 			@Override
 			public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-				if (firebaseAuth.getCurrentUser()==null)
-				{
+				if (firebaseAuth.getCurrentUser() == null) {
 					startActivity(new Intent(MainActivity1.this, singin_activity.class));
 				}
 			}
@@ -111,59 +111,59 @@ public class MainActivity1 extends AppCompatActivity implements OnMapReadyCallba
 			@Override
 			public boolean onNavigationItemSelected(@NonNull MenuItem pMenuItem) {
 				
-				switch (pMenuItem.getItemId()){
+				switch (pMenuItem.getItemId()) {
 					case R.id.nav_gallery:
 						
 						Toast.makeText(MainActivity1.this, "user Profile", Toast.LENGTH_LONG).show();
 						
-						newFragment  =  new GalleryFragment();
+						newFragment = new GalleryFragment();
 						transaction = getSupportFragmentManager().beginTransaction();
-						transaction.replace(R.id.nav_host_fragment,newFragment);
+						transaction.replace(R.id.nav_host_fragment, newFragment);
 						transaction.addToBackStack(null);
 						commit();
 						break;
-						
+					
 					case R.id.nav_home:
 						Toast.makeText(MainActivity1.this, "FAQ Screen", Toast.LENGTH_LONG).show();
-						newFragment  =  new ToolsFragment();
+						newFragment = new ToolsFragment();
 						transaction = getSupportFragmentManager().beginTransaction();
-						transaction.replace(R.id.nav_host_fragment,newFragment);
+						transaction.replace(R.id.nav_host_fragment, newFragment);
 						transaction.addToBackStack(null);
 						commit();
 						break;
 					
 					case R.id.nav_send:
 						Toast.makeText(MainActivity1.this, "Ride history", Toast.LENGTH_LONG).show();
-						newFragment  =  new SendFragment();
+						newFragment = new SendFragment();
 						transaction = getSupportFragmentManager().beginTransaction();
-						transaction.replace(R.id.nav_host_fragment,newFragment);
+						transaction.replace(R.id.nav_host_fragment, newFragment);
 						transaction.addToBackStack(null);
 						commit();
 						break;
 					
 					case R.id.nav_share:
 						Toast.makeText(MainActivity1.this, "Help screen", Toast.LENGTH_LONG).show();
-						newFragment  =  new ShareFragment();
+						newFragment = new ShareFragment();
 						transaction = getSupportFragmentManager().beginTransaction();
-						transaction.replace(R.id.nav_host_fragment,newFragment);
+						transaction.replace(R.id.nav_host_fragment, newFragment);
 						transaction.addToBackStack(null);
 						commit();
 						break;
 					
 					case R.id.nav_slideshow:
 						Toast.makeText(MainActivity1.this, "Bus booking Details", Toast.LENGTH_LONG).show();
-						newFragment  =  new SlideshowFragment();
+						newFragment = new SlideshowFragment();
 						transaction = getSupportFragmentManager().beginTransaction();
-						transaction.replace(R.id.nav_host_fragment,newFragment);
+						transaction.replace(R.id.nav_host_fragment, newFragment);
 						transaction.addToBackStack(null);
 						commit();
 						break;
-						
+					
 					case R.id.nav_tools:
 						Toast.makeText(MainActivity1.this, "Rides Available", Toast.LENGTH_LONG).show();
-						newFragment  =  new ToolsFragment();
+						newFragment = new ToolsFragment();
 						transaction = getSupportFragmentManager().beginTransaction();
-						transaction.replace(R.id.nav_host_fragment,newFragment);
+						transaction.replace(R.id.nav_host_fragment, newFragment);
 						transaction.addToBackStack(null);
 						commit();
 						break;
@@ -172,13 +172,14 @@ public class MainActivity1 extends AppCompatActivity implements OnMapReadyCallba
 				return false;
 			}
 			
-			int lock=0;
+			int lock = 0;
+			
 			private void commit() {
-				if (lock==0) {
+				if (lock == 0) {
 					transaction.commit();
-				lock =0;
+					lock = 0;
 				}
-				}
+			}
 		});
 		
 	}
@@ -187,6 +188,7 @@ public class MainActivity1 extends AppCompatActivity implements OnMapReadyCallba
 	@Override
 	public boolean onSupportNavigateUp() {
 		NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+		
 		return NavigationUI.navigateUp(navController, mAppBarConfiguration)
 				|| super.onSupportNavigateUp();
 		
@@ -195,8 +197,8 @@ public class MainActivity1 extends AppCompatActivity implements OnMapReadyCallba
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		//getMenuInflater().inflate(R.menu.main_activity1, menu);
+		//Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main_activity1, menu);
 		return true;
 		
 	}
@@ -205,10 +207,13 @@ public class MainActivity1 extends AppCompatActivity implements OnMapReadyCallba
 	public void onMapReady(GoogleMap googleMap) {
 		mMap = googleMap;
 		
+		Log.d("map on", "map is ready for loading");
+		
 		// Add a marker in Sydney and move the camera
 		LatLng sydney = new LatLng(31, 74);
 		mMap.addMarker(new MarkerOptions().position(sydney).title("Temporary Marker in Lahore"));
 		mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+		
 		
 	}
 	
@@ -233,4 +238,3 @@ public class MainActivity1 extends AppCompatActivity implements OnMapReadyCallba
 	
 	}
 }
-

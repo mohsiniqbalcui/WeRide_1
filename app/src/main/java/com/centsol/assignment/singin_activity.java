@@ -1,14 +1,9 @@
 package com.centsol.assignment;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.os.Bundle;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -20,11 +15,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-	import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -73,13 +70,13 @@ public class singin_activity extends AppCompatActivity {
 		
 		setContentView(R.layout.activity_singin_activity);
 		
-		inputEmail = (EditText) findViewById(R.id.LoginEmail);
-		inputPassword = (EditText) findViewById(R.id.LoginPassword);
+		inputEmail = findViewById(R.id.LoginEmail);
+		inputPassword = findViewById(R.id.LoginPassword);
 		
-		Button ahlogin = (Button) findViewById(R.id.btnsignin);
-		Button btnsignup = (Button) findViewById(R.id.btnLoginRegister);
+		Button ahlogin = findViewById(R.id.btnsignin);
+		Button btnsignup = findViewById(R.id.btnLoginRegister);
 		
-		progressBar = (ProgressBar) findViewById(R.id.progressBar);
+		progressBar = findViewById(R.id.progressBar);
 		//TextView btnSignIn = (TextView) findViewById(R.id.btnsignin);
 		com.shobhitpuri.custombuttons.GoogleSignInButton lGoogleSignInButton=  findViewById(R.id.sign_in_button);
 		
@@ -155,11 +152,11 @@ public class singin_activity extends AppCompatActivity {
 					googleName = user.getDisplayName();
 					Uri googleimageuri = user.getPhotoUrl();
 					
-					NavigationView lNavigationView = (NavigationView) findViewById(R.id.nav_view);
+					NavigationView lNavigationView = findViewById(R.id.nav_view);
 					View headerView = lNavigationView.getHeaderView(0);
-					TextView navUsername = (TextView) headerView.findViewById(R.id.username);
-					TextView navEmail = (TextView) headerView.findViewById(R.id.useremail);
-					ImageView lImageView = (ImageView) headerView.findViewById(R.id.imageView);
+					TextView navUsername = headerView.findViewById(R.id.username);
+					TextView navEmail = headerView.findViewById(R.id.useremail);
+					ImageView lImageView = headerView.findViewById(R.id.imageView);
 					
 					Picasso.get().load(googleimageuri).into(lImageView);
 					

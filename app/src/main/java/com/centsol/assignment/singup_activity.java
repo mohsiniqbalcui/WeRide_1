@@ -1,10 +1,5 @@
 package com.centsol.assignment;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,8 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,7 +32,7 @@ public class singup_activity extends AppCompatActivity {
 		setContentView(R.layout.activity_signup_activity);
 		
 		
-		Button btnSignUp = (Button) findViewById(R.id.btnRegister);
+		Button btnSignUp = findViewById(R.id.btnRegister);
 		
 		btnSignUp.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -48,11 +45,11 @@ public class singup_activity extends AppCompatActivity {
 		
 		mAuth = FirebaseAuth.getInstance();
 		
-		email_id = (EditText) findViewById(R.id.etFullName);
-		progressBar = (ProgressBar) findViewById(R.id.progressBarsignup);
-		passwordcheck = (EditText) findViewById(R.id.etPassword);
+		email_id = findViewById(R.id.etFullName);
+		progressBar = findViewById(R.id.progressBarsignup);
+		passwordcheck = findViewById(R.id.etPassword);
 		
-		Button ahsignup = (Button) findViewById(R.id.btnRegisterLogin);
+		Button ahsignup = findViewById(R.id.btnRegisterLogin);
 		
 		
 		ahsignup.setOnClickListener(new View.OnClickListener() {
